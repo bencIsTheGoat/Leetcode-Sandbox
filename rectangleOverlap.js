@@ -8,11 +8,31 @@
 // Given two(axis - aligned) rectangles, return whether they overlap.
 
 var isRectangleOverlap = function (rec1, rec2) {
-    rec1width = rec1[0] - rec1[2];
-    rec1height = rec1[1] - rec1[3];
-    rec2width = rec2[0] - rec2[2];
-    rec2height = rec2[1] - rec2[3];
-    totalwidth = rec1width + rec2width;
-    totalheight = rec1height + rec2height;
+    const rec1width = rec1[2] - rec1[0];
+    const rec1height = rec1[3] - rec1[1];
+    const rec2width = rec2[2] - rec2[0];
+    const rec2height = rec2[3] - rec2[1];
+    
+    const totalwidth = rec1width + rec2width;
+    const totalheight = rec1height + rec2height;
 
+    const combowidth1 = Math.abs(rec1[0] - rec2[2]);
+    const combowidth2 = Math.abs(rec2[0] - rec1[2]);
+
+    const maxComboWidth = Math.max(combowidth1, combowidth2);
+
+    const comboheight1 = Math.abs(rec1[1] - rec2[3]);
+    const comboheight2 = Math.abs(rec2[1] - rec1[3]);
+
+    const maxComboHeight = Math.max(comboheight1, comboheight2);
+
+    const heightBool = totalheight > maxComboHeight;
+    const widthBool = totalwidth > maxComboWidth;
+
+
+    return heightBool && widthBool;
 };
+
+rec1 = [0, 0, 1, 1], rec2 = [1, 0, 2, 1]
+
+console.log(isRectangleOverlap(rec1, rec2));
