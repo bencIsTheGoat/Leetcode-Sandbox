@@ -17,9 +17,10 @@ var partitionLabels = function (string) {
         farIdx = obj[current] > farIdx ? obj[current] : farIdx;
         // if we reach the farthest index we know we've found all the letter
         if (farIdx === i) {
-            // calc the length of the current word with partitioned letters
+            // calc the length of the current word with partitioned letters using running total
             let length = farIdx - total + 1;
             result.push(length); 
+            // add the length to running total
             total += length;
         }
     }
@@ -35,4 +36,7 @@ function lastIndex (string) {
     }
     return obj;
 }
+
+// linear time complexity, only have to run thru letters one time
+// space complexity linear cause storing obj and indexes in result
 console.log(partitionLabels("ababcbacadefegdehijhklij"));
