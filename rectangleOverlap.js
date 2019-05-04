@@ -33,8 +33,8 @@ var isRectangleOverlap = function (rec1, rec2) {
     // total width/height
     const heightBool = totalheight > maxComboHeight;
     const widthBool = totalwidth > maxComboWidth;
-
-
+    // the rectangles overlap only if both the combined width and combined heights
+    // are less than total width and total height respectively
     return heightBool && widthBool;
 };
 
