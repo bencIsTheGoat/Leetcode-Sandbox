@@ -20,7 +20,6 @@ var letterCombinations = function (digits) {
             letters.split('').forEach(letter => {
                 backtrack(nextDigits.slice(1), combo + letter);
             })
-
         }
     }
     backtrack(digits);
