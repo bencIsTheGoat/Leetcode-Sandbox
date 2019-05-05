@@ -14,5 +14,6 @@ function isBalanced(root) {
     // if the difference is greater than 1, use absolute value because right or 
     // left tree could be taller
     let difference = Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1;
+    // checks if entire tree and every subtree is balanced recursively
     return difference && isBalanced(root.right) && isBalanced(root.left);
 }
