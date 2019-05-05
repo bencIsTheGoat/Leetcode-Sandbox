@@ -20,16 +20,24 @@ const letterCombinations = function (digits) {
     // use backtracking algo which is recursive func that explores all possible
     // answers, if answer is not valid then the func discards it by making changes
     // on the previous step and then trys again
+    // pass in digits and combo of letters that correspond to digit
     const backtrack = (nextDigits, combo = '') => {
+        // if all digits have been checked push the combination in
+        // keep track of combination in argument passed in
         if (nextDigits === '') {
             output.push(combo);
         } else {
+            // grab the letters for number from phone
             let letters = phone[nextDigits[0]];
+            // iterate thru each letter calling the backtrack func recursively
+            // decrement the phone number by 1 as we step down tree for every recursive
+            // call, and add the current letter to end of combination
             letters.split('').forEach(letter => {
                 backtrack(nextDigits.slice(1), combo + letter);
             })
         }
     }
+    // call backtracking algo within function to get combinations in the output
     backtrack(digits);
     return output;
 };
