@@ -3,9 +3,9 @@
 // Amazon practice assesment question
 
 function gcfArray(array) {
-    let result = 1;
+    let result = array[0];
     for (let i = 0; i < array.length - 1; i++) {
-        result = gcf(array[i], array[i + 1]);
+        result = gcf(result, array[i + 1]);
     }
     return result
 }
@@ -18,4 +18,4 @@ function gcf(num1, num2) {
     }
 }
 
-console.log(gcfArray([20, 4, 16, 8, 20]));
+console.log(gcfArray([36, 28, 16, 4]));
