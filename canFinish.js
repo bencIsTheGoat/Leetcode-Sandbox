@@ -8,20 +8,22 @@ var canFinish = function (numCourses, prerequisites) {
     // use topological sort technique, similar to bubble sort
     let visited = true;
     while (visited) {
-        // set false initially
+        // set false when entered loop and will set false if any change has been
+        // made to the set, indicating another run thru of adjacency list is needed
         visited = false;
         // iterate thru every course in adjList
         for (let course in adjList) {
             // checks if every prereq has been taken for current course in iteration
             let bool = adjList[course].every(course => set.has(course));
             // if all prereqs taken and the set doesnt have course, add to set
-            // 
+            // and set the topological bool to true in order to keep looping
             if (!set.has(course) && bool) {
                 set.add(course);
                 visited = true;
             }
         }
     }
+    // if all the courses have been taken (included in set) then return true
     return set.size === numCourses;
 };
 
