@@ -8,7 +8,11 @@ function getHeight(root) {
 }
 
 function isBalanced(root) {
+    // if every subtree has been checked return true
     if (!root) return true;
+    // calls helper getHeight function to get height of each subtree and checks
+    // if the difference is greater than 1, use absolute value because right or 
+    // left tree could be taller
     let difference = Math.abs(getHeight(root.left) - getHeight(root.right)) <= 1;
     return difference && isBalanced(root.right) && isBalanced(root.left);
 }
