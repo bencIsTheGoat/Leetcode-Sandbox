@@ -1,5 +1,7 @@
 // Given an array of numbers, find the greatest common factor
 
+// Amazon practice assesment question
+
 function gcfArray(array) {
     let result = 1;
     for (let i = 0; i < array.length - 1; i++) {
