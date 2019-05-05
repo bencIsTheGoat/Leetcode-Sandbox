@@ -1,3 +1,7 @@
+// Given number of courses and an edge list representing pairs of courses and
+// the prereq course you need to take, indicate whether all the courses can be
+// taken
+
 var canFinish = function (numCourses, prerequisites) {
     // convert edge list to adjacency list
     let adjList = convertToAdjList(prerequisites);

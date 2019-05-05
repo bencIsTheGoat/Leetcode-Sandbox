@@ -1,3 +1,5 @@
+// Check is binary tree is balanced
+
 function getHeight(root) {
     // return -1 when the node is empty, since empty nodes have height of -1
     if (!root) return -1;
