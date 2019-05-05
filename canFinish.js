@@ -1,14 +1,21 @@
 var canFinish = function (numCourses, prerequisites) {
     // convert edge list to adjacency list
     let adjList = convertToAdjList(prerequisites);
+    // overwrite numcourses since edge case where an empty array is passed in
     numCourses = Object.keys(adjList).length;
+    // initialize new set that stores courses that one can take
     let set = new Set();
+    // use topological sort technique, similar to bubble sort
     let visited = true;
-
     while (visited) {
+        // set false initially
         visited = false;
+        // iterate thru every course in adjList
         for (let course in adjList) {
+            // checks if every prereq has been taken for current course in iteration
             let bool = adjList[course].every(course => set.has(course));
+            // if all prereqs taken and the set doesnt have course, add to set
+            // 
             if (!set.has(course) && bool) {
                 set.add(course);
                 visited = true;
