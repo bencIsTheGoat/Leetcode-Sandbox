@@ -1,6 +1,7 @@
 // Convert Integer to Roman numeral
 
 var intToRoman = function (num) {
+    // store integer to roman info in obj for constant lookup
     obj = {
         '1': 'I',
         '4': 'IV',
@@ -16,7 +17,10 @@ var intToRoman = function (num) {
         '900': 'CM',
         '1000': 'M'
     };
+    // base case
     if (num === 0) return '';
+    // recursive function basically grabs the leftmost digit and finds the corresponding
+    // roman numeral in object and builds a string with it
     if (num >= 1000) {
         const thou = Math.floor(num / 1000);
         return obj['1000'].repeat(thou) + intToRoman(num % 1000);
