@@ -3,7 +3,7 @@
 // appears in at most one part, and return a list of integers representing the size of these parts.
 
 var partitionLabels = function (string) {
-    // call helper function that stores the last index of letter in string
+    // call helper function that stores the last index of letter in obj
     let obj = lastIndex(string);
     let result = [];
     // initialize farIdx variable which keeps track of farthest index of letter

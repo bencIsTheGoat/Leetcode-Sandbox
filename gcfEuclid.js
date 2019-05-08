@@ -13,7 +13,7 @@ function gcfArray(array) {
     return result
 }
 
-// euclid algo that finds the gcf of 2 numbers in linear time
+// euclid algo that finds the gcf of 2 numbers in log time
 function gcf(num1, num2) {
     // when the first argument is zero return the second
     if (num1 === 0) {
