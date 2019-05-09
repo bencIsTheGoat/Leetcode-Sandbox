@@ -16,7 +16,9 @@ var reverseList = function (head) {
         // reassign so we can iterate over ll
         current = current.next;
     }
+    // set the head of the ll to the first element in the stack (last node added)
     head = stack[0];
+    // save to variable so we can iterate over;
     let newNode = head;
     for (let i = 1; i < stack.length; i++) {
         newNode.next = stack[i];
