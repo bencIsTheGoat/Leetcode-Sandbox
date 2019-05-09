@@ -41,17 +41,23 @@ var addTwoNumbers = function (l1, l2) {
         // add up the value for the pointer, remainder var only pertains to initial
         // remainder from head, nextRemainder is one used going forward
         let nextValue = val1 + val2 + remainder + nextRemainder;
+        // reassign the remainders to zero after we use them
         nextRemainder = 0;
         remainder = 0;
+        // do the greater than 10 check
         if (nextValue >= 10) {
             nextValue = nextValue % 10;
             nextRemainder = 1;
         }
+        // initialize node for pointer and so we can build up new ll
         runHead.next = new ListNode(nextValue);
+        // reassign so we can move down ll
         runHead = runHead.next;
+        // another safety check so we dont run into call next on null values
+        // maybe dont need this but cant hurt
         current1 = current1.next ? current1.next : 0;
         current2 = current2.next ? current2.next : 0;
     };
-
+    // return head of the newly created ll
     return head;
 };
