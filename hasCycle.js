@@ -16,6 +16,8 @@ var hasCycle = function (head) {
         if (!twoSpeed.next || !twoSpeed.next.next) return false;
         // reassign the twospeed so that it goes down ll twice as fast
         twoSpeed = twoSpeed.next.next;
+        // basic logic here is if the twospeed pointer overtakes the onespeed,
+        // we know its a circle
         const currBool = twoSpeed.next === oneSpeed;
         const nextBool = twoSpeed === oneSpeed;
         if (currBool || nextBool) return true;
