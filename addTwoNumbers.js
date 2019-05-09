@@ -24,11 +24,14 @@ var addTwoNumbers = function (l1, l2) {
     };
     // initialize new node for output ll and save it here to be able to return
     let head = new ListNode(value);
+    // save new head to variable to be able to iterate
     let runHead = head;
+    // 
     let nextRemainder = 0;
+    // make sure that the pointers exist otherwise set to 0, important to set to zero
+    // because of different sizes of lls, also 0 falsey in js which is helpful
     current1 = current1.next ? current1.next : 0
     current2 = current2.next ? current2.next : 0;
-
     while (remainder || nextRemainder || current1 || current2) {
         const val1 = current1 ? current1.val : 0;
         const val2 = current2 ? current2.val : 0;
