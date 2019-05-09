@@ -33,10 +33,13 @@ var addTwoNumbers = function (l1, l2) {
     current1 = current1.next ? current1.next : 0
     current2 = current2.next ? current2.next : 0;
     // if any of these exist we must perform iteration, covers edge case such that
-    // two ll of length 1 have 
+    // two ll of length 1 output ll that has length two think [5],[5] => [1 -> 0]
     while (remainder || nextRemainder || current1 || current2) {
+        // have to check whether the nodes exist other set to zero
         const val1 = current1 ? current1.val : 0;
         const val2 = current2 ? current2.val : 0;
+        // add up the value for the pointer, remainder var only pertains to initial
+        // remainder from head, nextRemainder is one used going forward
         let nextValue = val1 + val2 + remainder + nextRemainder;
         nextRemainder = 0;
         remainder = 0;
