@@ -20,8 +20,11 @@ var reverseList = function (head) {
     head = stack[0];
     // save to variable so we can iterate over;
     let newNode = head;
+    // iterate over the stack but leave last one in for assignment of tail
     for (let i = 1; i < stack.length; i++) {
+        // set each nodes pointer to the element in the stack
         newNode.next = stack[i];
+        // reassign to move down ll
         newNode = newNode.next;
     }
     newNode.next = stack[stack.length - 1];
