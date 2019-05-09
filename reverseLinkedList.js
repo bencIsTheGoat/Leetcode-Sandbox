@@ -27,6 +27,7 @@ var reverseList = function (head) {
         // reassign to move down ll
         newNode = newNode.next;
     }
+    // set the last node to the tail
     newNode.next = stack[stack.length - 1];
     newNode.next = null;
     return head;
