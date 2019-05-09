@@ -17,11 +17,18 @@ var hasCycle = function (head) {
         // reassign the twospeed so that it goes down ll twice as fast
         twoSpeed = twoSpeed.next.next;
         // basic logic here is if the twospeed pointer overtakes the onespeed,
-        // we know its a circle
+        // we know its a circle, so each time we iterate down the ll with the two diff
+        // pointers we will check if the twosped has caught up
         const currBool = twoSpeed.next === oneSpeed;
+        // i check both the pointer of twospeed and itself because i was worried
+        // about skipping over in odd length ll
         const nextBool = twoSpeed === oneSpeed;
+        // if either of those conditions are true then return true
         if (currBool || nextBool) return true;
+        // reassign slower pointer
         oneSpeed = oneSpeed.next;
     }
+    // if the onespeed or twospeed pointer is null we can return false cause 
+    // circle ll cant have null value
     return false;
 };
