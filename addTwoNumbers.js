@@ -7,11 +7,15 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 */
 
 // ugly and not very DRY but still linear time and constant space, so whats good
+// basic idea is to add two tens, hundreds, etc digits and save the remainder if
+// greater than single digit
 var addTwoNumbers = function (l1, l2) {
-    
+    // set two heads to variables to be able to move down ll
     let current1 = l1;
     let current2 = l2;
+    // initialize remainder variable 
     let remainder = 0;
+    // add up the values of the heads of the lls for new head of output ll
     let value = current1.val + current2.val;
     if (value >= 10) {
         value = value % 10
