@@ -14,6 +14,7 @@ var hasCycle = function (head) {
         // basically checking if there is a null value in linked list
         // if there is we know there cant possible be a cycle
         if (!twoSpeed.next || !twoSpeed.next.next) return false;
+        // reassign the twospeed so that it goes down ll twice as fast
         twoSpeed = twoSpeed.next.next;
         const currBool = twoSpeed.next === oneSpeed;
         const nextBool = twoSpeed === oneSpeed;
