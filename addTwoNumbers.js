@@ -6,8 +6,9 @@ a single digit. Add the two numbers and return it as a linked list.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 */
 
-
+// ugly and not very DRY but still linear time and constant space, so whats good
 var addTwoNumbers = function (l1, l2) {
+    
     let current1 = l1;
     let current2 = l2;
     let remainder = 0;
