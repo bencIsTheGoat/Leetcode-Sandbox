@@ -17,10 +17,12 @@ var addTwoNumbers = function (l1, l2) {
     let remainder = 0;
     // add up the values of the heads of the lls for new head of output ll
     let value = current1.val + current2.val;
+    // if the value is greater than ten take the tens digit and set remainder to 1
     if (value >= 10) {
         value = value % 10
         remainder = 1;
     };
+    // initialize new node for output ll and save it here to be able to return
     let head = new ListNode(value);
     let runHead = head;
     let nextRemainder = 0;
