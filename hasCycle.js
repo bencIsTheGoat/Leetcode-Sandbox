@@ -12,6 +12,7 @@ var hasCycle = function (head) {
     // especially since i have another check on line 14
     while (oneSpeed && twoSpeed) {
         // basically checking if there is a null value in linked list
+        // if there is we know there cant possible be a cycle
         if (!twoSpeed.next || !twoSpeed.next.next) return false;
         twoSpeed = twoSpeed.next.next;
         const currBool = twoSpeed.next === oneSpeed;
