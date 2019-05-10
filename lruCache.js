@@ -12,12 +12,18 @@ used item before inserting a new item.
 
 
 var LRUCache = function (capacity) {
+    // initialize lrucache by setting capacity
     this.capacity = capacity;
+    // create obj
     this.obj = {};
+    // create double linked list
     this.dll = new DoubleLinkedList();
+    // init size to keep track
     this.size = 0;
 };
 
+// high level: grab the element with the given key from the obj and use that to
+// remove from double linked list and add to the front since its most recently used
 LRUCache.prototype.get = function (key) {
     const ele = this.obj[key];
     if (!ele) return -1;
