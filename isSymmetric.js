@@ -23,5 +23,6 @@ function recurHelper(left, right) {
     const recurCheck1 = recurHelper(left.right, right.left);
     // this is the outercheck or the check that the outermost mirror children are equal
     const recurCheck2 = recurHelper(left.left, right.right);
+    // all the conditions must be true in order for tree to be symmetrical
     return innerCheck && recurCheck1 && recurCheck2;
 }
