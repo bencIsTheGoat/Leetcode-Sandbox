@@ -82,19 +82,25 @@ class DoubleLinkedList {
         prevTail.next = node;
         // set the new nodes prev pointer to old prev tail
         node.prev = prevTail;
+        // set the new nodes next pointer tail
         node.next = this.tail;
+        // set the tails prev pointer new node
         this.tail.prev = node;
         return node;
     }
 
     removeFirst() {
+        // grab the first node after the head
         const firstNode = this.head.next;
+        // call remove method from list node class
         firstNode.remove();
+        // return the removed node (makes it easy to delete from obj in lrucache)
         return firstNode;
     }
 }
 
 class ListNode {
+    // basic double linked node class with 2 pointers, prev and next
     constructor(key, val) {
         this.val = val;
         this.key = key;
@@ -102,6 +108,8 @@ class ListNode {
         this.prev = null;
     }
 
+    // remove method that set the prev pointer's next pointer to next pointer and
+    // vice versa
     remove() {
         this.prev.next = this.next;
         this.next.prev = this.prev;
