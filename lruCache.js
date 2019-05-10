@@ -57,23 +57,30 @@ LRUCache.prototype.put = function (key, value) {
     if (this.size > this.capacity) {
         // call dll remove first method that returns the node to be removed
         const rNode = this.dll.removeFirst();
+        // delete the node from the object
         delete this.obj[rNode.key];
         this.size--;
     }
 };
 
 class DoubleLinkedList {
+    // init dll with head and tail that point to eachother
     constructor() {
         this.head = new ListNode();
-        this.tail = new ListNode
+        this.tail = new ListNode();
         this.head.next = this.tail;
         this.tail.prev = this.head;
     }
 
+    // appends new item just before tail
     append(key, val) {
+        // create new list node with key value
         const node = new ListNode(key, val);
+        // save previous node to tail
         const prevTail = this.tail.prev;
+        // set the previous node pointer to new node inserting
         prevTail.next = node;
+        // set the new nodes prev pointer to old prev tail
         node.prev = prevTail;
         node.next = this.tail;
         this.tail.prev = node;
