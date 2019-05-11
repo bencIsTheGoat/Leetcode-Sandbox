@@ -6,6 +6,7 @@ var reverseList = function (head) {
     let prev = null;
     // while the head of the ll is a valid node
     while (head) {
+        // save the pointer of current head
         const newHead = head.next;
         head.next = prev;
         prev = head;
