@@ -1,6 +1,8 @@
 // Reverse a singly Linked list
 
+// slick way, no space complexity
 var reverseList = function (head) {
+    // init prev to null for new tail to point to null
     let prev = null;
     while (head) {
         const newHead = head.next;
