@@ -8,11 +8,15 @@ var reverseList = function (head) {
     while (head) {
         // save the pointer of current head
         const newHead = head.next;
+        // set the current head's pointer to prev head's pointer
         head.next = prev;
+        // set the prev to the current head
         prev = head;
+        // set the head to the current head's pointer to iterate
         head = newHead;
 
     }
+    
     return prev;
 };
 
