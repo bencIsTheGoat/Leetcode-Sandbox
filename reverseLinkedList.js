@@ -1,5 +1,17 @@
 // Reverse a singly Linked list
 
+var reverseList = function (head) {
+    let prev = null;
+    while (head) {
+        const newHead = head.next;
+        head.next = prev;
+        prev = head;
+        head = newHead;
+
+    }
+    return prev;
+};
+
 // Use a stack to implement
 
 var reverseList = function (head) {
@@ -32,3 +44,4 @@ var reverseList = function (head) {
     newNode.next = null;
     return head;
 };
+
