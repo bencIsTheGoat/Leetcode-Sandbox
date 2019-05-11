@@ -4,6 +4,7 @@
 var reverseList = function (head) {
     // init prev to null for new tail to point to null
     let prev = null;
+    // while the head of the ll is a valid node
     while (head) {
         const newHead = head.next;
         head.next = prev;
