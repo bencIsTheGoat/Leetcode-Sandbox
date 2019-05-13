@@ -9,13 +9,16 @@ var removeNthFromEnd = function (head, n) {
     // this loop iterates down the ll n times in order to get last kth ele with
     // 2 pointer method
     while (counter <= n) {
+        // covers edge case when n is larger than size of ll
         if (!lastPointer) {
             head = head.next;
             return head;
         }
+        // 
         lastPointer = lastPointer.next
         counter++;
     }
+
     let curr = head;
     while (lastPointer) {
         curr = curr.next;
