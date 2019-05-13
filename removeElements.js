@@ -3,8 +3,8 @@
 var removeElements = function (head, val) {
     // if the head doesnt exist just return it
     if (!head) return head;
+    // assign curr to head in order to iterate
     let curr = head
-
     while (curr) {
         let next = curr.next
         if (next && next.val === val) {
