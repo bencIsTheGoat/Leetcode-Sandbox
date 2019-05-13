@@ -1,6 +1,7 @@
 // Given a linked list, remove the n-th node from the end of list and return its head.
 
 var removeNthFromEnd = function (head, n) {
+    // covers edge case 
     if (n === 1 && !head.next) return head = null;
     let lastPointer = head;
     let counter = 0;
