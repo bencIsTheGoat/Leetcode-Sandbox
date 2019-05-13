@@ -8,6 +8,8 @@ var removeElements = function (head, val) {
     while (curr) {
         // save the current pointer to variable
         let next = curr.next
+        // if the pointer exists and the pointers val is equal to val passed in,
+        // check if any consecutive nodes also have the same value
         if (next && next.val === val) {
             while (next && next.val === val) {
                 next = next.next;
