@@ -20,6 +20,7 @@ var removeElements = function (head, val) {
         // set the curr to next to iterate down ll
         curr = next;
     }
+    // covers the edge case when the head value is equal to val passed in
     if (head.val === val) {
         head = head.next ? head.next : null
     }
