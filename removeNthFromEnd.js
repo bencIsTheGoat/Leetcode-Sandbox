@@ -19,13 +19,14 @@ var removeNthFromEnd = function (head, n) {
         // increment counter
         counter++;
     }
-    // iterate the 2 pointers down the ll, with the lastPOinter starting n nodes down
+    // iterate the 2 pointers down the ll, with the lastPointer starting n nodes down
     // when the last pointer hits the end the other pointer will be at the kth node
     let curr = head;
     while (lastPointer) {
         curr = curr.next;
         lastPointer = lastPointer.next;
     }
+    // remove the kth node from the ll
     const next = curr.next.next
     curr.next = next;
     return head;
