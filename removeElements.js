@@ -1,6 +1,7 @@
 // Remove all elements from a linked list of integers that have value val.
 
 var removeElements = function (head, val) {
+    // if the head doesnt exist just return it
     if (!head) return head;
     let curr = head
 
