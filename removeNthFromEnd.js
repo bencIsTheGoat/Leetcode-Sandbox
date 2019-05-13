@@ -16,6 +16,7 @@ var removeNthFromEnd = function (head, n) {
         }
         // reassign to iterate down ll
         lastPointer = lastPointer.next
+        // increment counter
         counter++;
     }
 
