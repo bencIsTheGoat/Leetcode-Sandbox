@@ -6,6 +6,7 @@ var removeElements = function (head, val) {
     // assign curr to head in order to iterate
     let curr = head
     while (curr) {
+        // save the current pointer to variable
         let next = curr.next
         if (next && next.val === val) {
             while (next && next.val === val) {
