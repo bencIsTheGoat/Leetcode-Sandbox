@@ -14,6 +14,7 @@ var removeElements = function (head, val) {
             while (next && next.val === val) {
                 next = next.next;
             }
+            // set the current pointer to new pointer where value doesnt equal val
             curr.next = next;
         }
         curr = next;
