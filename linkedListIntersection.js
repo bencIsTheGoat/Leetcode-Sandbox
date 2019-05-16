@@ -3,7 +3,7 @@
 
 // used set to store first LL and then check second LL in set
 var getIntersectionNode = function (headA, headB) {
-    // init set to store the ndoes of first ll
+    // init set to store the nodes of first ll
     const set = new Set();
     let current1 = headA;
     // iterate thru first ll and add all nodes to set
@@ -20,10 +20,17 @@ var getIntersectionNode = function (headA, headB) {
     return null;
 };
 
+// linear solution (i think) but constant space complexity
 var getIntersectionNode = function (headA, headB) {
+    // set a variable to both heads
     let currA = headA;
     let currB = headB;
+    // iterate thru both linked lists until they are equal
+    // if there is intersection eventually they will catch up with one another at null
+    // the intersection
     while (currA !== currB) {
+        // reassign the current node to its pointer if its not null, otherwise
+        // start it back at the head
         currA = currA === null ? headA : currA.next;
         currB = currB === null ? headB : currB.next;
     }
