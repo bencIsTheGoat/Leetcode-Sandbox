@@ -1,16 +1,23 @@
 class MaxHeap {
+    // initialize with array
     constructor() {
         this.array = [null];
     }
 
+    // call to insert val into heap
     insert(val) {
+        // push the val into array
         this.array.push(val);
+        // call recursive siftUp method construct heap
         this.siftUp(this.array.length - 1);
     }
 
     deleteMax() {
+        // if the heap only has one number just remove it
         if (this.array.length === 2) return this.array.pop();
-        if (this.array.length === 1) return null;
+        // if the heap has no nums then return null
+        if (this.array.length <= 1) return null;
+        // grab the old max to return later, gangster
         let max = this.array[1];
         this.array[1] = this.array.pop()
         this.siftDown(1);
