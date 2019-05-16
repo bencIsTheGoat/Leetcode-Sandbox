@@ -1,14 +1,21 @@
 // Find the kth largest element in an unsorted array. Note that it is the kth 
 // largest element in the sorted order, not the kth distinct element.
 
+// implement heap insert and removemax methods to do this is linear time (avg)
 var findKthLargest = function (nums, k) {
+    // initialize heap in order to convert nums array into heap
     let heap = [null];
+    // call insert method on each element of the array
     for (let num of nums) {
+        // pass in heap and current element
         insert(heap, num);
     }
+    // call removeMax method the heap k times in order to find the kth largest element
+    // basically finding the kth largest value in the nums array
     for (let i = 0; i < k - 1; i++) {
         removeMax(heap);
     }
+    // return the first index since zero index is null in heap
     return heap[1];
 };
 
