@@ -1,9 +1,17 @@
 // is the given array a max heap?
 
+// recursive solution
 function isMaxHeap(array, idx = 1) {
+    // base case: if the idx were passing in is greater than or equal to the last
+    // index return true - pass in idx here instead of slice
     if (idx >= array.length - 1) return true;
+    // find the left child of the current element in the array, if no left child
+    // exists then replace with -Infinity because we cant do undefined in binary operation
     const left = array[idx * 2] ? array[idx * 2] : -Infinity;
+    // find the right child of the current element in the array
     const right = array[idx * 2 + 1] ? array[idx * 2 + 1] : -Infinity;
+    // if the current index is less than the max of the left and right child then
+    // we can return false because its not a valid max heap
     if (array[idx] < Math.max(left, right)) return false;
     return isMaxHeap(array, idx + 1);
 }
