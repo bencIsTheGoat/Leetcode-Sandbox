@@ -16,10 +16,16 @@ function isMaxHeap(array, idx = 1) {
     return isMaxHeap(array, idx + 1);
 }
 
+// iterate solution
 function isMaxHeap(array) {
+    // start from the first index because the zero index will be null
     for (let i = 1; i < array.length; i++) {
+        // grab left child
         const left = array[i * 2] ? array[i * 2] : -Infinity;
+        // grab right child
         const right = array[i * 2 + 1] ? array[i * 2 + 1] : -Infinity;
+        // if at any time the current index is smaller than the left or right
+        // we can just return false
         if (array[i] < Math.max(left, right)) return false;
     }
     return true;
