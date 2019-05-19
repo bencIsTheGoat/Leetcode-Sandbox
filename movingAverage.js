@@ -30,5 +30,24 @@ class ListNode {
 }
 
 class DoubleLinkedList {
+    constructor() {
+        this.tail = new ListNode ();
+        this.head = new ListNode ();
+        this.head.next = this.tail;
+        this.tail.prev = this.head;
+    }
 
+    addToTail(val) {
+        const node = new ListNode (val);
+        const prev = this.tail.prev;
+        prev.next = node;
+        node.next = this.tail;
+        this.tail.prev = node;
+    }
+
+    removeFirst () {
+        const node = this.head.next;
+        node.remove();
+        return node;
+    }
 }
