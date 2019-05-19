@@ -8,19 +8,19 @@
 // [0, 1, 5, -4]
 function rotatedSearch (array, targ) {
     const partIdx = idxHelper(array);
-    if (array[0] < targ) {
+    if (targ < array[0]) {
         var start = partIdx + 1;
-        var end = array.length - 1;
+        var end = array.length;
     } else {
         var start = 0;
-        var end = partIdx;
+        var end = partIdx + 1;
     }
     while (start < end) {
         const middle = Math.floor((start + end) / 2);
         if (array[middle] < targ) {
-            start = middle;
+            start = middle + 1;
         } else if (array[middle] === targ) {
-            return targ;
+            return middle;
         } else {
             end = middle;
         }
@@ -43,4 +43,4 @@ function idxHelper (array) {
     return start;
 }
 
-console.log(rotatedSearch([0, 1, 2, -39, -25, -17, -10, -5, -2]))
+console.log(rotatedSearch([0, 1, 2, -39, -25, -17, -10, -5, -2], -2))
