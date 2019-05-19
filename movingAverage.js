@@ -6,15 +6,19 @@ var MovingAverage = function (size) {
     this.dll = new DoubleLinkedList ();
     this.size = size;
     this.currentSize = 0;
+    this.sum = 0;
 };
 
 MovingAverage.prototype.next = function (val) {
-    this.obj[val] = this.dll.append(val);
+    this.dll.append(val);
+    this.sum += val;
     this.currentSize++;
     if (this.currentSize > this.size) {
         const delNode = this.dll.removeFirst();
-        delete delNode;
+        this.sum -= delNode.val;
+        this.currentSize--;
     }
+    return this.sum / this.currentSize
 };
 
 class ListNode {
@@ -43,6 +47,7 @@ class DoubleLinkedList {
         const node = new ListNode (val);
         const prev = this.tail.prev;
         prev.next = node;
+        node.prev = prev;
         node.next = this.tail;
         this.tail.prev = node;
     }
