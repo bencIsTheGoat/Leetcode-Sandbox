@@ -9,6 +9,12 @@ var MovingAverage = function (size) {
 };
 
 MovingAverage.prototype.next = function (val) {
+    this.obj[val] = this.dll.append(val);
+    this.currentSize++;
+    if (this.currentSize > this.size) {
+        const delNode = this.dll.removeFirst();
+        delete delNode;
+    }
 };
 
 class ListNode {
@@ -33,7 +39,7 @@ class DoubleLinkedList {
         this.tail.prev = this.head;
     }
 
-    addToTail(val) {
+    append(val) {
         const node = new ListNode (val);
         const prev = this.tail.prev;
         prev.next = node;
