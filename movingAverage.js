@@ -4,7 +4,8 @@
 
 
 var MovingAverage = function (size) {
-    this.array = [];
+    this.obj = {};
+    this.dll = new DoubleLinkedList ();
     this.size = size;
 };
 
