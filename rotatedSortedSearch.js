@@ -8,16 +8,24 @@
 // [0, 1, 5, -4]
 function rotatedSearch (array, targ) {
     const partIdx = idxHelper(array);
-    if (arr[0] < targ) {
-        let start = partIdx + 1;
-        let end = array.length - 1;
+    if (array[0] < targ) {
+        var start = partIdx + 1;
+        var end = array.length - 1;
     } else {
-        let start = 0;
-        let end = partIdx;
+        var start = 0;
+        var end = partIdx;
     }
     while (start < end) {
-        
+        const middle = Math.floor((start + end) / 2);
+        if (array[middle] < targ) {
+            start = middle;
+        } else if (array[middle] === targ) {
+            return targ;
+        } else {
+            end = middle;
+        }
     }
+    return -1;
 }
 
 function idxHelper (array) {
