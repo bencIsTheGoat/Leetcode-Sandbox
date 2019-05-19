@@ -6,7 +6,21 @@
 // basically treat the searches at 2 different arrays
 
 // [0, 1, 5, -4]
-function rotatedSearch (array) {
+function rotatedSearch (array, targ) {
+    const partIdx = idxHelper(array);
+    if (arr[0] < targ) {
+        let start = partIdx + 1;
+        let end = array.length - 1;
+    } else {
+        let start = 0;
+        let end = partIdx;
+    }
+    while (start < end) {
+        
+    }
+}
+
+function idxHelper (array) {
     let start = 0;
     let end = array.length - 1;
     while (start < end - 1) {
@@ -17,7 +31,6 @@ function rotatedSearch (array) {
         } else {
             end = middle;
         }
-        console.log([start, end])
     }
     return start;
 }
