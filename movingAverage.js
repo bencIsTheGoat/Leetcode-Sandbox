@@ -14,3 +14,21 @@ MovingAverage.prototype.next = function (val) {
     const sum = this.array.reduce((acc, num) => acc + num);
     return sum / this.array.length;
 };
+
+class ListNode {
+    constructor(val) {
+        this.next = null;
+        this.prev = null;
+        this.val = val;
+    }
+    remove() {
+        this.prev.next = this.next;
+        this.next.prev = this.prev;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoubleLinkedList {
+
+}
