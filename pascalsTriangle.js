@@ -1,3 +1,5 @@
+
+
 var generate = function (numRows) {
     let triangle = [];
     let count = 1;
