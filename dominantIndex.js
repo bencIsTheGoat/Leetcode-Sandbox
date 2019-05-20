@@ -7,6 +7,24 @@ every other number in the array.
 If it is, return the index of the largest element, otherwise return -1.
 */
 
+// one iteration
+var dominantIndex = function (nums) {
+    let max = nums[0];
+    let maxIdx = 0;
+    let secondMax = -Infinity;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] > max) {
+            secondMax = max;
+            max = nums[i];
+            maxIdx = i;
+        } else if (nums[i] > secondMax) {
+            secondMax = nums[i];
+        }
+    }
+    return max >= secondMax * 2 ? maxIdx : -1;
+};
+
+// two iterations
 var dominantIndex = function (nums) {
     let max = nums[0];
     let maxIdx = 0;
