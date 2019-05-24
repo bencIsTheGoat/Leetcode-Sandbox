@@ -3,6 +3,7 @@
 
 var mergeTwoLists = function (l1, l2) {
     // base case: if both linked lists have been traversed return null for tails pointer
+    // also have to handle the case when the linked lists are different lengths
     if (l1 === null && l2 === null) {
         return null;
     } else if (l1 === null) {
