@@ -3,8 +3,6 @@
 
 // Utilize LRU Cache methodology
 var MovingAverage = function (size) {
-    // define obj for constant lookup, keep track of integers
-    this.obj = {};
     // define dll
     this.dll = new DoubleLinkedList ();
     // define maximum size for window
