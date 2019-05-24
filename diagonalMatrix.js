@@ -29,6 +29,8 @@ var findDiagonalOrder = function (matrix) {
         const upRight = matrix[y - 1] ? matrix[y - 1][x + 1] : undefined;
         // save the current index as t/f bool conditional on even/odd sum
         const evenIdxBool = (x + y) % 2 === 0;
+        // if the sum of indexes is even then we know we must go upright, checking
+        // on whether we need to go right or up first
         if (evenIdxBool) {
             if (right === undefined) {
                 output.push(down);
@@ -41,6 +43,8 @@ var findDiagonalOrder = function (matrix) {
                 x++;
                 y--;
             }
+        // if the sum of indexes is odd then we know we must go downright, checking
+        // whether we need to go down or left right first
         } else {
             if (down === undefined) {
                 output.push(right);
