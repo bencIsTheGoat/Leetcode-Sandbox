@@ -8,6 +8,7 @@ You may return the answer in any order.  The answer is guaranteed to be unique
 */
 
 var kClosest = function (points, K) {
+    // init array
     const array = [];
     if (points.length <= K) return points;
     for (let coord of points) {
