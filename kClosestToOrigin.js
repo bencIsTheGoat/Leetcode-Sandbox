@@ -22,6 +22,8 @@ var kClosest = function (points, K) {
     // sort the array by the distance
     array.sort((a, b) => a.dist - b.dist);
     let output = []
+    // increment over array K times to get min K distances and shovel coord into
+    // output array
     array.forEach((obj, idx) => {
         if (idx === K) break;
         output.push(obj['coord']);
