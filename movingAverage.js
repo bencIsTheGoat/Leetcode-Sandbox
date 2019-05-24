@@ -1,6 +1,7 @@
 // Given a stream of integers and a window size, calculate the moving average 
 // of all integers in the sliding window.
 
+// Utilize LRU Cache methodology
 var MovingAverage = function (size) {
     this.obj = {};
     this.dll = new DoubleLinkedList ();
@@ -37,9 +38,13 @@ class ListNode {
 
 class DoubleLinkedList {
     constructor() {
+        // set tail to new empty ListNode
         this.tail = new ListNode ();
+        // set head to new empty ListNode
         this.head = new ListNode ();
+        // set the head nexr pointer to tail
         this.head.next = this.tail;
+        // set the tail prev pointer to head
         this.tail.prev = this.head;
     }
 
