@@ -19,10 +19,12 @@ var kClosest = function (points, K) {
         // store coord and dist information in array
         array.push({ dist: dist, coord: coord });
     }
-
+    // sort the array by the distance
     array.sort((a, b) => a.dist - b.dist);
-    let output = array.map((obj, idx) => {
-        return obj['coord'];
+    let output = []
+    array.forEach((obj, idx) => {
+        if (idx === K) break;
+        output.push(obj['coord']);
     })
-    return output.slice(0, K)
+    return output
 };
