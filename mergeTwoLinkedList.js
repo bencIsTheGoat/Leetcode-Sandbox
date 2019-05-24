@@ -11,10 +11,13 @@ var mergeTwoLists = function (l1, l2) {
     } else if (l2 === null) {
         return l1
     }
+    // check if the node exists, in case of diff lengths
     const val1 = l1 ? l1.val : -Infinity;
     const val2 = l2 ? l2.val : -Infinity;
+    // do value comnparison and create node with smaller value
     if (val1 < val2) {
         var node = new ListNode(val1);
+        // set pointer to recursive call, while incrementing down appropriate ll
         node.next = mergeTwoLists(l1.next, l2);
     } else {
         var node = new ListNode(val2);
