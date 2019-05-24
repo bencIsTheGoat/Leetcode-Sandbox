@@ -2,6 +2,7 @@
 // of the matrix in diagonal order as shown in the below image.
 
 var findDiagonalOrder = function (matrix) {
+    // initialize output matrix;
     let output = [];
     if (matrix.length === 0 || matrix[0].length === 0) return []
     output = [matrix[0][0]]
