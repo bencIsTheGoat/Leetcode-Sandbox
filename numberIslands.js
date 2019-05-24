@@ -31,6 +31,7 @@ var numIslands = function (grid) {
                     const left = grid[y] ? grid[y][x - 1] : undefined;
                     const right = grid[y] ? grid[y][x + 1] : undefined;
                     // check if any of the surrounding elements are islands
+                    // if they are the set them to 0 and add them to stack
                     if (up === '1') {
                         grid[y - 1][x] = '0'
                         visited.add([y - 1, x]);
@@ -52,6 +53,8 @@ var numIslands = function (grid) {
                         stack.unshift([y, x - 1]);
                     }
                 }
+                // when all the islands have been marked as visited
+                // increment count
                 count++
             }
         }
