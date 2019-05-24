@@ -48,12 +48,19 @@ class DoubleLinkedList {
         this.tail.prev = this.head;
     }
 
+    // add node to end of ll
     append(val) {
+        // create new node
         const node = new ListNode (val);
+        // save the tails prev pointer
         const prev = this.tail.prev;
+        // set the tails prev pointer to node
         prev.next = node;
+        // set the nodes prev pointer to tail
         node.prev = prev;
+        // set the node next pointer to tail
         node.next = this.tail;
+        // set the tails prev pointer to node
         this.tail.prev = node;
     }
 
