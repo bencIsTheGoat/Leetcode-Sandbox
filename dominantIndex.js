@@ -29,6 +29,7 @@ var dominantIndex = function (nums) {
             secondMax = nums[i];
         }
     }
+    // if the max is at least 2 times greater than the second max then return the max
     return max >= secondMax * 2 ? maxIdx : -1;
 };
 
