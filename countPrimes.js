@@ -8,7 +8,9 @@ var countPrimes = function (n) {
     nums[1] = false;
     // basic idea is to set assume all numbers are prime unless they are factors
     // of 2, 3 and 5
+    // iterate up until the sqrt of n
     for (let i = 2; i < Math.sqrt(n); i++) {
+        // checks if we've already marked the index as not prime (false)
         if (nums[i]) {
             for (let j = i * i; j <= n;) {
                 nums[j] = false;
