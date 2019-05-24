@@ -11,3 +11,22 @@ var missingNumber = function (nums) {
     }
     return sum;
 };
+
+// binary search implementation
+function missNumber (nums) {
+    let start = 0;
+    let end = nums.length - 1;
+    const diff = nums[0];
+    while (start < end) {
+        const middle = Math.floor((start + end)/ 2);
+        const check = diff + middle;
+        if (check === nums[middle]) {
+            start = middle + 1;
+        } else {
+            end = middle;
+        }
+    }
+    return start + diff !== nums[start] ? start + diff : -1
+ }
+
+console.log(missNumber([6, 7, 8, 9, 10]))
