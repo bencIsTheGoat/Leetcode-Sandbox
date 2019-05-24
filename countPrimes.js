@@ -1,6 +1,7 @@
 // Count the number of prime numbers less than a non-negative number, n.
 
 var countPrimes = function (n) {
+    // initialize array of length n with true values
     const nums = Array(n).fill(true);
     nums[0] = false;
     nums[1] = false;
