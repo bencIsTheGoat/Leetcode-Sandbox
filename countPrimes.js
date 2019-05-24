@@ -3,8 +3,11 @@
 var countPrimes = function (n) {
     // initialize array of length n with true values
     const nums = Array(n).fill(true);
+    // set the 0 and 1 indexes to false
     nums[0] = false;
     nums[1] = false;
+    // basic idea is to set assume all numbers are prime unless they are factors
+    // of 2, 3 and 5
     for (let i = 2; i < Math.sqrt(n); i++) {
         if (nums[i]) {
             for (let j = i * i; j <= n;) {
