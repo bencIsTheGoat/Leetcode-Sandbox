@@ -6,11 +6,17 @@ var findDiagonalOrder = function (matrix) {
     let output = [];
     // if the matrix is empty of a 1-D matrix is given return empty
     if (matrix.length === 0 || matrix[0].length === 0) return []
+    // seed output with top left hand value
     output = [matrix[0][0]]
+    // x represents right and left
     let x = 0;
+    // y represents up and down
     let y = 0;
+    // max represents the number of elements in matrix
     let max = (matrix[0].length * matrix.length) - 1
+    // initialize counter representing how many elements traversed
     let count = 0
+    // while the number of elements traversed it less than number of elements
     while (count < max) {
         count++
         const up = matrix[y - 1] ? matrix[y - 1][x] : undefined;
