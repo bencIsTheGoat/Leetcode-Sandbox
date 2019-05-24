@@ -4,6 +4,7 @@
 var findDiagonalOrder = function (matrix) {
     // initialize output matrix;
     let output = [];
+    // if the matrix is empty of a 1-D matrix is given return empty
     if (matrix.length === 0 || matrix[0].length === 0) return []
     output = [matrix[0][0]]
     let x = 0;
