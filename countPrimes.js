@@ -12,6 +12,9 @@ var countPrimes = function (n) {
     for (let i = 2; i < Math.sqrt(n); i++) {
         // checks if we've already marked the index as not prime (false)
         if (nums[i]) {
+            // sets the factors of i to false
+            // 2 => 4 + 2, 4 + 4, 4 + 6
+            // 3 => 9 + 3, 9 + 6, 9 + 9
             for (let j = i * i; j <= n;) {
                 nums[j] = false;
                 j = j + i;
@@ -19,6 +22,7 @@ var countPrimes = function (n) {
         }
     }
     let count = 0;
+    // counts all true values left
     for (let ele of nums) {
         if (ele) count++
     }
