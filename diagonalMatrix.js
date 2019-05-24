@@ -18,13 +18,16 @@ var findDiagonalOrder = function (matrix) {
     let count = 0
     // while the number of elements traversed it less than number of elements
     while (count < max) {
+        // increment count since weve already seeded with top left
         count++
+        // save all possible directions
         const up = matrix[y - 1] ? matrix[y - 1][x] : undefined;
         const right = matrix[y] ? matrix[y][x + 1] : undefined;
         const downLeft = matrix[y + 1] ? matrix[y + 1][x - 1] : undefined;
         const down = matrix[y + 1] ? matrix[y + 1][x] : undefined;
         const left = matrix[y] ? matrix[y][x - 1] : undefined;
         const upRight = matrix[y - 1] ? matrix[y - 1][x + 1] : undefined;
+        // save the current index as t/f bool conditional on even/odd sum
         const evenIdxBool = (x + y) % 2 === 0;
         if (evenIdxBool) {
             if (right === undefined) {
