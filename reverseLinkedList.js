@@ -1,5 +1,15 @@
 // Reverse a singly Linked list
 
+// recursive way
+var reverseList = function (head, prev = null) {
+    if (head === null) return prev;
+    const oldHead = head.next
+    const oldPrev = prev;
+    prev = head;
+    prev.next = oldPrev;
+    return reverseList(oldHead, prev)
+};
+
 // slick way, no space complexity
 var reverseList = function (head) {
     // init prev to null for new tail to point to null
