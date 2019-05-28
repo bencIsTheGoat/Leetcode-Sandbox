@@ -33,3 +33,24 @@ var generate = function (numRows) {
     }
     return triangle;
 };
+
+// slow but recursive solution
+var generate = function (numRows, triangle = []) {
+    if (numRows === 0) return [];
+    if (numRows === 1) return [[1]];
+    if (numRows === 2) return [[1], [1, 1]];
+    let i = 1
+    const level = [];
+    while (i <= numRows) {
+        level.push(helper(numRows, i))
+        i++;
+    }
+    const prev = generate(numRows - 1);
+    prev.push(level);
+    return prev;
+};
+
+function helper(row, col) {
+    if (col === 1 || row === col) return 1;
+    return helper(row - 1, col - 1) + helper(row - 1, col);
+}
