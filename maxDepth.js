@@ -5,7 +5,7 @@
 
 var maxDepth = function (root) {
     if (root === null) return 0;
-    const left = maxDepth(root.left);
-    const right = maxDepth(root.right);
-    return 1 + Math.max(left, right);
+    const left = 1 + maxDepth(root.left);
+    const right = 1 + maxDepth(root.right);
+    return Math.max(left, right);
 };
