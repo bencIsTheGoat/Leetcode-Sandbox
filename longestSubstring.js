@@ -35,3 +35,23 @@ var lengthOfLongestSubstring = function (s) {
     return totalCount;
 
 };
+
+var lengthOfLongestSubstring = function (s) {
+    if (s.length < 1) return 0;
+    let max = 0;
+    let runMax = 0;
+    let obj = {};
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] in obj) {
+            if (runMax > max) max = runMax;
+            runMax = 1;
+            i = obj[s[i]] + 1;
+            obj = {};
+            obj[s[i]] = i;
+        } else {
+            obj[s[i]] = i;
+            runMax++
+        }
+    }
+    return Math.max(runMax, max);
+};
