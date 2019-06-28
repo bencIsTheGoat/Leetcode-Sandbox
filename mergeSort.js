@@ -19,6 +19,7 @@ function merge(left, right) {
         } else {
             result.push(right[rightIdx]);
             rightIdx++;
+            
         }
     }
     return result.concat(left.slice(leftIdx)).concat(right.slice(rightIdx));
