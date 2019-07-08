@@ -1,4 +1,4 @@
-this.solved = false;
+
 
 var solveSudoku = function (board, rowObj, colObj, secObj, row = 0, col = 0) {
     const [trowObj, tcolObj, tsecObj] = getRow(board);
