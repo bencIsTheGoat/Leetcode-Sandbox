@@ -1,5 +1,4 @@
 var cloneGraph = function (node) {
-
     const queue = [node];
     const obj = {}
     obj[node.val] = new Node(node.val);
