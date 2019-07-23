@@ -1,5 +1,18 @@
 function subarraySum(nums, k) {
     let count = 0;
+    let sum = 0;
+    const memo = { 0: 1 }
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+        const diff = sum - k;
+        if (memo[diff]) count += memo[diff];
+        memo[sum] = memo[sum] ? memo[sum] + 1 : 1;
+    }
+    return count;
+}
+
+function subarraySum(nums, k) {
+    let count = 0;
     for (let i = 0; i < nums.length; i++) {
         let sum = nums[i];
         if (sum === k) {
