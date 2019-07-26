@@ -1,10 +1,12 @@
 function addFiles (array) {
-    console.log(array);
+    if (array.length === 1) return array[0];
     if (array.length === 2) return array[0] + array[1];
-    let [firstMin, array1] = findMin(array);
-    let [secondMin, array2] = findMin(array1);
-    array2.push(firstMin + secondMin);
-    return firstMin + secondMin + addFiles(array2);
+    let [firstMin, minIdx] = findMin(array);
+    array = array.slice(0, minIdx).concat(array.slice(minIdx + 1));
+    let [secondMin, secondMinIdx] = findMin(array);
+    array = array.slice(0, secondMinIdx).concat(array.slice(secondMinIdx + 1));
+    array.push(firstMin + secondMin);
+    return firstMin + secondMin + addFiles(array);
 }
 
 function findMin(array) {
@@ -18,8 +20,8 @@ function findMin(array) {
             minIdx = i;
         }
     }
-    array = array.slice(0, minIdx).concat(array.slice(minIdx + 1));
-    return [min, array];
+    // array = array.slice(0, minIdx).concat(array.slice(minIdx + 1));
+    return [min, minIdx];
 }
 
-console.log(addFiles([4, 6, 8, 10]))
+console.log(addFiles([4, 6, 8, 12]))
